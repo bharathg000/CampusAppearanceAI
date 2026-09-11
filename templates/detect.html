@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Detection | CampusAppearanceAI</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+
+<body>
+
+    <div class="container">
+
+        <h1>Appearance Detection</h1>
+
+        <p class="subtitle">
+            Detection module is ready.
+        </p>
+
+        <div class="card">
+
+            <h2>Camera Detection</h2>
+
+           <img
+    src="{{ url_for('video') }}"
+    width="640"
+    height="480"
+    alt="Live Camera Feed"
+>
+
+            <a href="/">
+                <button>Back to Home</button>
+            </a>
+
+        </div>
+
+    </div>
+
+</body>
+</html>
