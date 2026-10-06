@@ -1,13 +1,71 @@
+```html
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
 
     <title>Detection | CampusAppearanceAI</title>
 
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/style.css') }}">
+
+    <style>
+
+        .camera-box {
+            width: 100%;
+            overflow: hidden;
+            border-radius: 12px;
+            margin-bottom: 20px;
+        }
+
+        .camera-box img {
+            width: 100%;
+            max-width: 640px;
+            height: auto;
+            display: block;
+            margin: auto;
+            border-radius: 12px;
+        }
+
+        .checklist {
+            text-align: left;
+            margin-top: 25px;
+        }
+
+        .check-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            background-color: #f8fafc;
+            padding: 14px;
+            margin: 10px 0;
+            border-radius: 8px;
+            font-size: 16px;
+        }
+
+        .check-item input {
+            width: 18px;
+            height: 18px;
+            flex-shrink: 0;
+        }
+
+        .button-group {
+            margin-top: 25px;
+        }
+
+        .button-group button {
+            margin: 5px;
+        }
+
+    </style>
+
 </head>
+
 
 <body>
 
@@ -16,27 +74,202 @@
         <h1>Appearance Detection</h1>
 
         <p class="subtitle">
-            Detection module is ready.
+            Campus appearance compliance checking system
         </p>
+
 
         <div class="card">
 
-            <h2>Camera Detection</h2>
+            <h2>📷 Camera Detection</h2>
 
-           <img
-    src="{{ url_for('video') }}"
-    width="640"
-    height="480"
-    alt="Live Camera Feed"
->
+            <p>
+                Position yourself clearly in front of the camera.
+            </p>
 
-            <a href="/">
-                <button>Back to Home</button>
-            </a>
+
+            <!-- ============================= -->
+            <!-- CAMERA -->
+            <!-- ============================= -->
+
+            <div class="camera-box">
+
+                <img
+                    src="{{ url_for('video') }}"
+                    alt="Live Camera Feed"
+                >
+
+            </div>
+
+
+            <!-- ============================= -->
+            <!-- CHECKLIST -->
+            <!-- ============================= -->
+
+            <div class="checklist">
+
+                <h3>Appearance Checklist</h3>
+
+
+                <label class="check-item">
+
+                    <input
+                        type="checkbox"
+                        id="shirt"
+                        checked
+                    >
+
+                    Formal shirt is worn and properly tucked
+
+                </label>
+
+
+                <label class="check-item">
+
+                    <input
+                        type="checkbox"
+                        id="trousers"
+                        checked
+                    >
+
+                    Formal trousers are worn
+
+                </label>
+
+
+                <label class="check-item">
+
+                    <input
+                        type="checkbox"
+                        id="shoes"
+                        checked
+                    >
+
+                    Formal shoes are worn
+
+                </label>
+
+
+                <label class="check-item">
+
+                    <input
+                        type="checkbox"
+                        id="hair"
+                        checked
+                    >
+
+                    Hair is properly groomed
+
+                </label>
+
+
+                <label class="check-item">
+
+                    <input
+                        type="checkbox"
+                        id="beard"
+                        checked
+                    >
+
+                    Beard is properly groomed
+
+                </label>
+
+            </div>
+
+
+            <!-- ============================= -->
+            <!-- BUTTONS -->
+            <!-- ============================= -->
+
+            <div class="button-group">
+
+                <form
+                    action="/result"
+                    method="GET"
+                    onsubmit="prepareChecklist()"
+                >
+
+                    <input
+                        type="hidden"
+                        name="shirt_tucked"
+                        id="shirt_value"
+                    >
+
+                    <input
+                        type="hidden"
+                        name="formal_trousers"
+                        id="trousers_value"
+                    >
+
+                    <input
+                        type="hidden"
+                        name="formal_shoes"
+                        id="shoes_value"
+                    >
+
+                    <input
+                        type="hidden"
+                        name="hair_ok"
+                        id="hair_value"
+                    >
+
+                    <input
+                        type="hidden"
+                        name="beard_ok"
+                        id="beard_value"
+                    >
+
+
+                    <button type="submit">
+                        Check Compliance
+                    </button>
+
+                </form>
+
+
+                <a href="/">
+
+                    <button type="button">
+                        Back to Home
+                    </button>
+
+                </a>
+
+            </div>
 
         </div>
 
     </div>
 
+
+    <!-- ============================= -->
+    <!-- JAVASCRIPT -->
+    <!-- ============================= -->
+
+    <script>
+
+        function prepareChecklist() {
+
+            document.getElementById("shirt_value").value =
+                document.getElementById("shirt").checked;
+
+            document.getElementById("trousers_value").value =
+                document.getElementById("trousers").checked;
+
+            document.getElementById("shoes_value").value =
+                document.getElementById("shoes").checked;
+
+            document.getElementById("hair_value").value =
+                document.getElementById("hair").checked;
+
+            document.getElementById("beard_value").value =
+                document.getElementById("beard").checked;
+
+        }
+
+    </script>
+
 </body>
+
 </html>
+```

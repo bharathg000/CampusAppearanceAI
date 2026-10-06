@@ -12,11 +12,20 @@ while True:
         print("Could not access camera")
         break
 
-    results = model(frame)
+    results = model(frame, verbose=False)
+
+    for result in results:
+        for box in result.boxes:
+
+            class_id = int(box.cls[0])
+            confidence = float(box.conf[0])
+
+            if class_id == 0:
+                print(f"Person detected: {confidence:.2f}")
 
     annotated_frame = results[0].plot()
 
-    cv2.imshow("CampusAppearanceAI - YOLO Test", annotated_frame)
+    cv2.imshow("CampusAppearanceAI - Person Detection", annotated_frame)
 
     if cv2.waitKey(1) & 0xFF == ord("q"):
         break

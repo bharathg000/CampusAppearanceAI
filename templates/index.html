@@ -1,40 +1,187 @@
+```html
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
 
     <title>CampusAppearanceAI</title>
 
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/style.css') }}">
+
+    <style>
+
+        .hero {
+            padding: 20px 0;
+        }
+
+        .hero h1 {
+            margin-bottom: 10px;
+        }
+
+        .hero-text {
+            max-width: 650px;
+            margin: 0 auto 25px auto;
+            line-height: 1.6;
+        }
+
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+            margin-top: 25px;
+        }
+
+        .feature {
+            background: #f8fafc;
+            padding: 18px;
+            border-radius: 10px;
+            text-align: left;
+        }
+
+        .feature h3 {
+            margin-top: 0;
+        }
+
+        .start-button {
+            margin-top: 25px;
+        }
+
+        .start-button button {
+            font-size: 17px;
+            padding: 14px 30px;
+        }
+
+        .info {
+            margin-top: 25px;
+            font-size: 14px;
+            color: #6b7280;
+        }
+
+        @media (max-width: 600px) {
+
+            .feature-grid {
+                grid-template-columns: 1fr;
+            }
+
+        }
+
+    </style>
+
 </head>
+
 
 <body>
 
     <div class="container">
 
-        <h1>CampusAppearanceAI</h1>
+        <div class="hero">
 
-        <p class="subtitle">
-            AI-Based Campus Appearance Compliance Detection
-        </p>
+            <h1>CampusAppearanceAI</h1>
+
+            <p class="subtitle">
+                AI-Based Campus Appearance Compliance Detection
+            </p>
+
+        </div>
+
 
         <div class="card">
 
             <h2>Appearance Compliance Detection</h2>
 
-            <p>
-                Detect predefined campus appearance guidelines
-                using computer vision.
+            <p class="hero-text">
+
+                CampusAppearanceAI uses computer vision and
+                artificial intelligence to assist in checking
+                predefined campus appearance guidelines.
+
             </p>
 
-            <a href="/detect">
-    <button>Start Detection</button>
-</a>
+
+            <div class="feature-grid">
+
+                <div class="feature">
+
+                    <h3>🤖 AI Detection</h3>
+
+                    <p>
+                        Uses a trained YOLO model to detect
+                        ID-card presence through the camera.
+                    </p>
+
+                </div>
+
+
+                <div class="feature">
+
+                    <h3>📷 Live Camera</h3>
+
+                    <p>
+                        Provides real-time camera-based
+                        appearance checking.
+                    </p>
+
+                </div>
+
+
+                <div class="feature">
+
+                    <h3>📋 Compliance Rules</h3>
+
+                    <p>
+                        Checks predefined appearance
+                        requirements such as dress, hair
+                        and grooming.
+                    </p>
+
+                </div>
+
+
+                <div class="feature">
+
+                    <h3>📊 Clear Results</h3>
+
+                    <p>
+                        Displays individual rule status and
+                        overall compliance.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="start-button">
+
+                <a href="/detect">
+
+                    <button>
+                        🚀 Start Detection
+                    </button>
+
+                </a>
+
+            </div>
+
+
+            <p class="info">
+
+                Prototype for AI-based campus appearance
+                compliance assistance.
+
+            </p>
 
         </div>
 
     </div>
 
 </body>
+
 </html>
+```
